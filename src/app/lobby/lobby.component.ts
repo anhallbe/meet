@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { RoomID } from '../room-id';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-lobby',
@@ -19,18 +19,18 @@ export class LobbyComponent implements OnInit {
     }
   }]);
 
-  constructor(private router: Router) { }
+  constructor(private roomService: RoomService) { }
 
   ngOnInit(): void {
   }
 
   join() {
     const roomId = this.roomId.value;
-    this.router.navigate(['/room', roomId]);
+    this.roomService.join(roomId);
   }
 
   create() {
-    this.router.navigate(['/room', RoomID.generate()]);
+    this.roomService.create();
   }
 
   getErrorMessage() {

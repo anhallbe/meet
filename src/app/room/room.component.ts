@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss']
 })
-export class RoomComponent implements OnInit {
+export class RoomComponent implements OnInit, OnDestroy {
 
   selfStream = navigator.mediaDevices.getUserMedia({
     audio: true,
@@ -21,6 +21,9 @@ export class RoomComponent implements OnInit {
 
   ngOnInit(): void {
     this.roomId = this.route.snapshot.paramMap.get('roomId');
+  }
 
+  ngOnDestroy(): void {
+    this.selfStream.then(stream => stream.getTracks().forEach(track => track.stop()));
   }
 }

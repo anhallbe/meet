@@ -1,4 +1,8 @@
 <mat-toolbar color="primary">
   <span routerLink="/" style="cursor: pointer;">Meet</span>
+  <span style="flex: 1 1 auto;"></span>
+  <button *ngIf="roomService.isInRoom()" mat-icon-button (click)="roomService.copyRoomLink()">
+    <mat-icon matTooltip="Copy room link">file_copy</mat-icon>
+  </button>
 </mat-toolbar>
 <router-outlet></router-outlet>

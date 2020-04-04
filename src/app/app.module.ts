@@ -4,8 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,9 +30,12 @@ import { RoomComponent } from './room/room.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatDividerModule,
+    MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatGridListModule,
   ],
   providers: [],
