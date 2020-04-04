@@ -1,6 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+interface Participant {
+  name: string;
+  stream: Promise<MediaStream>;
+  muted: boolean;
+}
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -15,6 +21,13 @@ export class RoomComponent implements OnInit, OnDestroy {
     },
   });
   roomId: string;
+  participants: Participant[] = [
+    {
+      name: 'Me',
+      stream: this.selfStream,
+      muted: true,
+    }
+  ];
 
   constructor(private route: ActivatedRoute) {
   }

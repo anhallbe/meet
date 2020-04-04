@@ -1,11 +1,8 @@
 <mat-grid-list cols="2" rowHeight="16:9">
-    <mat-grid-tile>
-        <video [srcObject]="selfStream | async" autoplay [muted]="true" playsinline></video>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <video [srcObject]="selfStream | async" autoplay [muted]="true" playsinline></video>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <video [srcObject]="selfStream | async" autoplay [muted]="true" playsinline></video>
+    <mat-grid-tile *ngFor="let participant of participants" style="position: relative;">
+        <div class="overlay">
+            <span>{{participant.name}}</span>
+        </div>
+        <video [srcObject]="participant.stream | async" autoplay [muted]="participant.muted" playsinline></video>
     </mat-grid-tile>
 </mat-grid-list>
