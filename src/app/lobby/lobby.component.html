@@ -1,0 +1,18 @@
+<section>
+    <h1>Welcome to meet!</h1>
+    <p>
+        Join an existing room
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>Room ID</mat-label>
+            <input matInput type="text" [formControl]="roomId">
+            <mat-error *ngIf="roomId.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button *ngIf="roomId.valid" mat-button (click)="join()">Join</button>
+    </p>
+    <p>
+        ...or create a new one!
+    </p>
+    <button mat-flat-button color="primary" (click)="create()">Create</button>
+</section>

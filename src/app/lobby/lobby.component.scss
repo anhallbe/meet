@@ -1,0 +1,13 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    margin-top: 100px;
+    width: 350px;
+
+    mat-form-field {
+        width: 80%;
+    }
+}
